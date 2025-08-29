@@ -1,0 +1,40 @@
+
+
+@if(mostrarProductos){
+
+@for (producto of productos; track producto.id) {
+  <div class="productos">
+  <div >Nompre: {{producto.nombre | uppercase}}</div>
+  <div>Marca: {{producto.marca}}</div>
+  <div>Precio: {{producto.precio}}</div>
+  <div>Stock:{{producto.stock}}</div>
+  </div>
+}
+
+}@else {
+  <div></div>
+}
+
+
+  <button class="btn" (click)="mostrar()">{{mostrarProductos? 'Ocultar':'Mostrar'}}</button>
+
+<p>Diligencie los siguientes campos para agregar más productos a la lista.</p>
+
+<div class="inputs">
+  <label>Nombre: </label>
+  <input [(ngModel)]="nuevoProducto.nombre" type="text" placeholder="Escriba el nombre del producto">
+</div>
+<div class="inputs">
+  <label>Marca: </label>
+  <input [(ngModel)]="nuevoProducto.marca" type="text" placeholder="Escriba la marca del producto">
+</div>
+<div class="inputs">
+  <label>Precio: </label>
+  <input [(ngModel)]="nuevoProducto.precio" type="text" placeholder="Escriba el precio del producto">
+</div>
+<div class="inputs">
+  <label>Stock: </label>
+  <input [(ngModel)]="nuevoProducto.stock" type="text" placeholder="escriba el stock del producto">
+</div>
+
+<button class="btn" (click)="agregar()"> Agregar producto</button>
